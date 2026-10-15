@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Healthy Catering Services Portal</title>
+<meta name="description" content="Contact our catering team for meal plans, corporate catering, events and customized requests.">
+<meta name="theme-color" content="#183D32">
+<link rel="icon" type="image/webp" href="images/logo-forest.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+:root{
+  --forest:#183D32; --emerald:#27845C; --sage:#A9C5A4; --ivory:#FAF7EF; --cream:#F0E8D8; --coral:#E87555; --citrus:#EBCB72;
+  --charcoal:#262C28; --muted:#777E77; --white:#FFFFFF;
+  --line:rgba(24,61,50,.14); --radius:4px; --radius-lg:8px;
+  --serif:'DM Serif Display','Playfair Display',Georgia,serif; --sans:'Manrope','DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --shadow:0 18px 40px -22px rgba(24,61,50,.45); --ease:cubic-bezier(.22,.7,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);color:var(--charcoal);background:var(--ivory);line-height:1.65;overflow-x:hidden;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.12;margin:0 0 .5em;color:var(--forest);letter-spacing:-.01em}
+h1{font-size:clamp(2.5rem,5.6vw,4.6rem)} h2{font-size:clamp(2rem,3.8vw,3.1rem)} h3{font-size:clamp(1.25rem,1.8vw,1.6rem)}
+p{margin:0 0 1em} ul{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--forest);color:var(--ivory);padding:10px 16px;z-index:300;border-radius:var(--radius)}
+.skip:focus{left:8px}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.section{padding:clamp(64px,9vw,80px) 0;position:relative}
+.section.cream{background:var(--cream)} .section.dark{background:var(--forest);color:var(--ivory)}
+.section.dark h2,.section.dark h3{color:var(--ivory)}
+.label{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:.95rem;color:var(--emerald);margin-bottom:18px}
+.label::before{content:"";width:34px;height:2px;background:var(--coral)}
+.dark .label{color:var(--citrus)}
+.lead{font-size:clamp(1.05rem,1.4vw,1.2rem);color:#4b534d;max-width:62ch}
+.dark .lead{color:rgba(250,247,239,.82)}
+.sec-head{max-width:720px;margin-bottom:clamp(36px,5vw,64px)}
+/* buttons */
+.btn{--bg:var(--emerald);--fg:#fff;--bd:var(--emerald);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;min-height:48px;font-weight:700;font-size:.95rem;border:1.5px solid var(--bd);background:var(--bg);color:var(--fg);border-radius:var(--radius);overflow:hidden;isolation:isolate;transition:color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);white-space:nowrap}
+.btn::before{content:"";position:absolute;inset:0;background:var(--forest);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);z-index:-1}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1)} .btn:hover,.btn:focus-visible{border-color:var(--forest);transform:translateY(-2px);box-shadow:0 14px 24px -14px rgba(24,61,50,.6)}
+.btn i{transition:transform .35s var(--ease)} .btn:hover i.fa-arrow-right,.btn:focus-visible i.fa-arrow-right{transform:translateX(4px)}
+.btn.ghost{--bg:transparent;--fg:var(--forest);--bd:var(--forest)} .btn.ghost::before{background:var(--forest)} .btn.ghost:hover,.btn.ghost:focus-visible{color:var(--ivory)}
+.btn.light{--bg:var(--ivory);--fg:var(--forest);--bd:var(--ivory)} .btn.light::before{background:var(--citrus)} .btn.light:hover,.btn.light:focus-visible{color:var(--forest);border-color:var(--citrus)}
+.btn.line-light{--bg:transparent;--fg:var(--ivory);--bd:rgba(250,247,239,.6)} .btn.line-light::before{background:var(--ivory)} .btn.line-light:hover,.btn.line-light:focus-visible{color:var(--forest);border-color:var(--ivory)}
+.btn.coral{--bg:var(--coral);--bd:var(--coral)} .btn.coral::before{background:var(--forest)}
+.btn.sm{padding:10px 18px;min-height:42px;font-size:.88rem}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--emerald);border-bottom:2px solid transparent;transition:gap .3s var(--ease),border-color .3s,color .3s}
+.link-arrow:hover,.link-arrow:focus-visible{gap:14px;border-color:var(--coral);color:var(--forest)}
+/* header */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .4s var(--ease),box-shadow .4s var(--ease),backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent;background:linear-gradient(180deg,rgba(250,247,239,.78),rgba(250,247,239,0))}
+.site-header.scrolled{background:rgba(250,247,239,.86);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-color:var(--line);box-shadow:0 10px 30px -22px rgba(24,61,50,.6)}
+.bar{width:min(1280px,100% - 40px);margin-inline:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:14px 0;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;justify-self:start}
+.logo-img{height:auto;width:clamp(128px,11vw,158px)}
+.nav{display:flex;gap:6px}
+.nav a{position:relative;padding:10px 16px;font-weight:600;font-size:.95rem;color:var(--forest);transition:color .3s}
+.nav a::after{content:"";position:absolute;left:16px;right:16px;bottom:4px;height:2px;background:var(--coral);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover::after,.nav a:focus-visible::after,.nav a.active::after{transform:scaleX(1)} .nav a.active{color:var(--emerald)}
+.bar .login{justify-self:end}
+.login-btn{--bg:var(--forest);--bd:var(--forest);padding:11px 24px}
+.login-btn::before{background:var(--coral)} .login-btn:hover,.login-btn:focus-visible{border-color:var(--coral)}
+.burger{display:none;justify-self:end;width:48px;height:48px;border:1.5px solid var(--forest);background:transparent;color:var(--forest);border-radius:var(--radius);font-size:1.15rem;align-items:center;justify-content:center;transition:background .3s,color .3s}
+.burger:hover{background:var(--forest);color:var(--ivory)}
+.scrim{position:fixed;inset:0;background:rgba(24,61,50,.55);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:140}
+.scrim.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(88vw,370px);background:var(--forest);color:var(--ivory);z-index:150;transform:translateX(102%);transition:transform .5s var(--ease);display:flex;flex-direction:column;padding:22px 24px 28px;overflow-y:auto;visibility:hidden}
+.drawer.open{transform:none;visibility:visible}
+.drawer-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+.drawer .logo-img{width:140px}
+.drawer-close{width:46px;height:46px;border-radius:var(--radius);border:1.5px solid rgba(250,247,239,.5);background:transparent;color:var(--ivory);font-size:1.2rem;transition:background .3s,color .3s,transform .4s var(--ease)}
+.drawer-close:hover{background:var(--ivory);color:var(--forest);transform:rotate(90deg)}
+.drawer nav{display:flex;flex-direction:column}
+.drawer nav a{padding:16px 4px;font-family:var(--serif);font-size:1.6rem;border-bottom:1px solid rgba(250,247,239,.14);transition:padding-left .35s var(--ease),color .3s}
+.drawer nav a:hover,.drawer nav a.active{padding-left:14px;color:var(--citrus)}
+.drawer .btn{margin-top:28px;width:100%}
+body.no-scroll{overflow:hidden}
+@media (max-width:980px){.nav,.bar .login{display:none}.burger{display:inline-flex}.bar{grid-template-columns:1fr auto}}
+/* footer */
+.site-footer{background:var(--forest);color:rgba(250,247,239,.84);position:relative;overflow:hidden;padding:clamp(56px,7vw,88px) 0 0}
+.site-footer::before{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border:1px solid rgba(250,247,239,.1);border-radius:50%;pointer-events:none}
+.site-footer::after{content:"";position:absolute;left:-60px;bottom:40px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(235,203,114,.18),transparent 70%);pointer-events:none}
+.foot-grid{display:grid;grid-template-columns:1.4fr .9fr 1.1fr 1.3fr;gap:clamp(28px,4vw,56px);position:relative;z-index:1}
+.site-footer h3{font-family:var(--sans);font-weight:700;font-size:1rem;color:var(--ivory);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(250,247,239,.16)}
+.foot-brand .logo-img{width:170px;margin-bottom:18px} .foot-brand p{font-size:.95rem;max-width:34ch}
+.socials{display:flex;gap:10px;margin-top:20px}
+.socials a{width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(250,247,239,.3);border-radius:var(--radius);color:var(--ivory);transition:background .3s,color .3s,transform .35s var(--ease),border-color .3s}
+.socials a:hover,.socials a:focus-visible{background:var(--citrus);color:var(--forest);border-color:var(--citrus);transform:translateY(-4px)}
+.foot-links li{margin-bottom:6px}
+.foot-links a{display:inline-block;padding:5px 0;position:relative;transition:color .3s,transform .35s var(--ease)}
+.foot-links a::before{content:"";position:absolute;left:0;bottom:2px;width:100%;height:1px;background:var(--citrus);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.foot-links a:hover,.foot-links a:focus-visible{color:var(--citrus);transform:translateX(6px)} .foot-links a:hover::before{transform:scaleX(1)}
+.foot-contact li{display:flex;gap:14px;margin-bottom:14px;font-size:.95rem;padding:6px 8px;margin-inline:-8px;border-radius:var(--radius);transition:background .3s}
+.foot-contact li:hover{background:rgba(250,247,239,.07)} .foot-contact i{color:var(--citrus);margin-top:5px;width:16px;text-align:center}
+.foot-note{font-size:.8rem;opacity:.7;margin-top:6px}
+.foot-bottom{margin-top:clamp(36px,5vw,60px);border-top:1px solid rgba(250,247,239,.16);padding:22px 0;font-size:.88rem;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;position:relative;z-index:1}
+@media (max-width:1020px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.foot-grid{grid-template-columns:1fr}}
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+.reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)} .reveal-img.in{clip-path:inset(0)}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-in{animation:rise .9s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes pageIn{from{opacity:0}to{opacity:1}} body{animation:pageIn .6s ease both}
+/* media blocks */
+.zoom{overflow:hidden;position:relative;background:var(--cream)} .zoom img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)} .zoom:hover img{transform:scale(1.06)}
+.glass{background:rgba(250,247,239,.62);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.55);box-shadow:0 20px 40px -26px rgba(24,61,50,.6);border-radius:var(--radius-lg)}
+.tag{display:inline-block;padding:4px 10px;font-size:.74rem;font-weight:700;border-radius:2px;background:rgba(39,132,92,.12);color:var(--emerald)}
+.tag.coral{background:rgba(232,117,85,.14);color:#b7452b} .tag.citrus{background:rgba(235,203,114,.35);color:#7a5d0e}
+/* forms */
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;position:relative}
+.field>label,.field-label{font-weight:700;font-size:.88rem;color:var(--forest)}
+.input{width:100%;padding:14px 16px;min-height:50px;font:inherit;color:var(--charcoal);background:var(--white);border:1.5px solid rgba(24,61,50,.22);border-radius:var(--radius);transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
+.input:hover{border-color:rgba(24,61,50,.45)} .input:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 4px rgba(39,132,92,.16);transform:translateY(-1px)}
+textarea.input{min-height:140px;resize:vertical}
+.field.invalid .input{border-color:var(--coral);box-shadow:0 0 0 4px rgba(232,117,85,.14)}
+.field.valid .input{border-color:var(--emerald)}
+.err{font-size:.82rem;color:#b7452b;font-weight:600;min-height:0;max-height:0;overflow:hidden;opacity:0;transition:max-height .3s,opacity .3s}
+.field.invalid .err{max-height:60px;opacity:1}
+.hint{font-size:.8rem;color:var(--muted)}
+/* toast */
+.toasts{position:fixed;right:20px;bottom:20px;z-index:400;display:flex;flex-direction:column;gap:10px;width:min(380px,100% - 40px)}
+.toast{display:flex;gap:12px;align-items:flex-start;background:var(--forest);color:var(--ivory);padding:14px 16px;border-radius:var(--radius);box-shadow:0 20px 40px -18px rgba(0,0,0,.5);border-left:5px solid var(--citrus);animation:toastIn .5s var(--ease) both;font-size:.93rem}
+.toast.error{border-left-color:var(--coral)} .toast.success{border-left-color:#6fd3a0}
+.toast i{margin-top:3px} .toast.out{animation:toastOut .35s ease both}
+.toast button{margin-left:auto;background:none;border:0;color:inherit;opacity:.7;font-size:1rem;padding:0 2px}
+@keyframes toastIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}} @keyframes toastOut{to{opacity:0;transform:translateX(30px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal,.reveal-img{opacity:1;transform:none;clip-path:none}}
+
+
+.cselect{position:relative;width:100%}
+.cselect-btn{width:100%;min-height:50px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;font:inherit;color:var(--charcoal);background:var(--white);border:1.5px solid rgba(24,61,50,.22);border-radius:var(--radius);text-align:left;transition:border-color .3s,box-shadow .3s}
+.cselect-btn:hover{border-color:rgba(24,61,50,.45)} .cselect-btn:focus-visible,.cselect.open .cselect-btn{outline:none;border-color:var(--emerald);box-shadow:0 0 0 4px rgba(39,132,92,.16)}
+.cselect-btn .ph{color:var(--muted)} .cselect-btn i{font-size:.8rem;color:var(--emerald);transition:transform .35s var(--ease)} .cselect.open .cselect-btn i{transform:rotate(180deg)}
+.cselect-list{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 24px 40px -20px rgba(24,61,50,.5);max-height:260px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .3s var(--ease),visibility .25s;padding:6px}
+.cselect.open .cselect-list{opacity:1;visibility:visible;transform:none}
+.cselect-list li{padding:11px 12px;border-radius:3px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem;transition:background .2s,padding-left .3s var(--ease)}
+.cselect-list li:hover,.cselect-list li.focus{background:var(--cream);padding-left:18px} .cselect-list li[aria-selected="true"]{color:var(--emerald);font-weight:700} .cselect-list li[aria-selected="true"]::after{content:"\\f00c";font-family:"Font Awesome 6 Free";font-weight:900;font-size:.8rem}
+.field.invalid .cselect-btn{border-color:var(--coral);box-shadow:0 0 0 4px rgba(232,117,85,.14)}
+
+.page-hero{padding:clamp(120px,13vw,165px) 0 clamp(48px,6vw,80px);background:radial-gradient(800px 420px at 90% 0,rgba(232,117,85,.18),transparent 60%),var(--ivory);overflow:hidden}
+.ph-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:stretch}
+.ph-copy{display:flex;flex-direction:column;justify-content:center}
+.ph-img{position:relative;min-height:360px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--sage)} .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.ph-grid{grid-template-columns:1fr}.ph-img{min-height:260px}}
+
+/* get in touch: contact details side + form */
+.form-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,70px);align-items:stretch}
+.contact-side{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--forest);color:var(--ivory);padding:clamp(26px,3.6vw,44px);display:flex;flex-direction:column;box-shadow:var(--shadow);isolation:isolate}
+.contact-side::before{content:"";position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(235,203,114,.35);z-index:-1}
+.contact-side::after{content:"";position:absolute;left:-70px;bottom:-70px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(235,203,114,.2),transparent 70%);z-index:-1}
+.contact-side h2{color:var(--ivory);font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:8px}
+.contact-side .sub{color:rgba(250,247,239,.8);font-size:.95rem;margin-bottom:22px}
+.cs-list{display:grid;gap:0;border-top:1px solid rgba(250,247,239,.16)}
+.cs-list li{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid rgba(250,247,239,.16);transition:padding-left .4s var(--ease),background .3s}
+.cs-list li:hover{padding-left:10px;background:linear-gradient(90deg,rgba(235,203,114,.12),transparent)}
+.cs-ico{width:48px;height:48px;border-radius:var(--radius);background:rgba(250,247,239,.1);color:var(--citrus);display:grid;place-items:center;font-size:1.1rem;transition:background .4s,color .4s}
+.cs-list li:hover .cs-ico{background:var(--coral);color:#fff}
+.cs-list h3{font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:var(--citrus);margin:0 0 4px}
+.cs-list p,.cs-list a{margin:0;color:var(--ivory);font-size:.98rem;word-break:break-word} .cs-list a:hover,.cs-list a:focus-visible{color:var(--citrus);text-decoration:underline}
+.cs-list small{display:block;margin-top:3px;color:rgba(250,247,239,.6);font-size:.76rem}
+.cs-points{display:grid;gap:10px;margin-top:auto;padding-top:24px;font-size:.93rem}
+.cs-points li{display:flex;gap:12px;color:rgba(250,247,239,.9)} .cs-points i{color:var(--citrus);margin-top:5px}
+.form-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,4vw,46px);box-shadow:var(--shadow)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.counter{align-self:flex-end;font-size:.78rem;color:var(--muted)}
+.form-note{font-size:.82rem;color:var(--muted);margin-top:14px;display:flex;gap:10px}
+.form-note i{color:var(--emerald);margin-top:4px}
+.btn .spin{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite} .btn.loading .spin{display:inline-block} .btn.loading .arr{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:900px){.form-grid{grid-template-columns:1fr}} @media (max-width:560px){.two{grid-template-columns:1fr}}
+
+/* map: smaller, with side content */
+.map-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.map-box{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--cream);position:relative;max-width:100%;min-height:340px;height:100%}
+.map-box iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
+.map-info .lead{margin-bottom:22px}
+.visit{display:grid;gap:0;border-top:1px solid var(--line);margin-bottom:22px}
+.visit li{display:grid;grid-template-columns:40px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);transition:padding-left .4s var(--ease),background .3s}
+.visit li:hover{padding-left:10px;background:linear-gradient(90deg,rgba(235,203,114,.2),transparent)}
+.visit i{color:var(--emerald);font-size:1.15rem;margin-top:4px} .visit b{display:block;color:var(--forest)} .visit span{color:#59615b;font-size:.93rem}
+.map-meta{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:.93rem}
+@media (max-width:900px){.map-grid{grid-template-columns:1fr}.map-box{min-height:280px;height:300px}}
+.faq{max-width:860px;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;text-align:left;padding:22px 6px;background:none;border:0;font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.4rem);color:var(--forest);transition:padding-left .4s var(--ease),color .3s}
+.faq-q:hover{padding-left:14px;color:var(--emerald)} .faq-q i{flex:none;width:36px;height:36px;display:grid;place-items:center;border:1.5px solid var(--forest);border-radius:var(--radius);font-size:.8rem;transition:transform .4s var(--ease),background .3s,color .3s}
+.faq-q[aria-expanded="true"] i{transform:rotate(45deg);background:var(--forest);color:var(--ivory)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)} .faq-a>div{overflow:hidden} .faq-a p{margin:0;padding:0 6px 24px;color:#4b534d;max-width:70ch}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.final-band{background:var(--forest);color:var(--ivory);padding:clamp(60px,8vw,104px) 0;position:relative;overflow:hidden;text-align:center}
+.final-band::before,.final-band::after{content:"";position:absolute;border-radius:50%;border:2px solid rgba(235,203,114,.35)} .final-band::before{width:320px;height:320px;left:-100px;top:-120px} .final-band::after{width:220px;height:220px;right:-60px;bottom:-90px}
+.final-band h2{color:var(--ivory);max-width:20ch;margin-inline:auto} .final-band .lead{margin-inline:auto;margin-bottom:30px} .final-band .btn-row{justify-content:center}
+
+</style>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header" id="siteHeader">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="Healthy Catering Services Portal — Home"><img src="images/logo-forest.webp" alt="Stackly logo" width="760" height="216" class="logo-img"></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Healthy Menu</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="active" aria-current="page">Contact Us</a>
+    </nav>
+    <div class="login"><a class="btn login-btn" href="login.html"><i class="fa-regular fa-user"></i> Login</a></div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <a href="index.html" aria-label="Home"><img src="images/logo-ivory.webp" alt="Stackly logo" width="760" height="216" class="logo-img"></a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <nav aria-label="Mobile navigation links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Healthy Menu</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="active" aria-current="page">Contact Us</a>
+  </nav>
+  <a class="btn light" href="login.html"><i class="fa-regular fa-user"></i> Login</a>
+</aside>
+<main id="main">
+
+<section class="page-hero" aria-labelledby="ct-title"><div class="wrap ph-grid">
+  <div class="ph-copy"><span class="label hero-in">Contact us</span><h1 id="ct-title" class="hero-in" style="--d:.1s;font-size:clamp(2.4rem,5.2vw,4.2rem)">Let’s Plan Something Delicious.</h1>
+  <p class="lead hero-in" style="--d:.2s">Reach our catering team about meal plans, corporate catering, events and customized requirements. Tell us what you have in mind and we will help shape it.</p>
+  <div class="btn-row hero-in" style="--d:.3s"><a class="btn" href="404.html">Send an Inquiry <i class="fa-solid fa-arrow-right"></i></a><a class="btn ghost" href="404.html">Read the FAQ</a></div></div>
+  <div class="ph-img hero-in" style="--d:.2s"><img src="images/buffet.webp" alt="Healthy bowls and fresh dishes arranged on a catering table" width="960" height="720" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='images/grain-bowl.webp'"></div>
+</div></section>
+
+<section class="section cream" id="inquiry" aria-labelledby="form-title"><div class="wrap form-grid">
+  <aside class="contact-side reveal" aria-label="Contact information">
+    <h2>Tell us what you need.</h2>
+    <p class="sub">Call, email or visit us — or send an inquiry using the form and we will get back to you.</p>
+    <ul class="cs-list">
+      <li><span class="cs-ico"><i class="fa-solid fa-phone"></i></span><div><h3>Phone Number</h3><a>+91 98765 43210</a><small>Sample number</small></div></li>
+      <li><span class="cs-ico"><i class="fa-solid fa-envelope"></i></span><div><h3>Email Address</h3><a >stackly@healthycatering.example</a><small>Sample address</small></div></li>
+      <li><span class="cs-ico"><i class="fa-solid fa-location-dot"></i></span><div><h3>Business Address</h3><p>Plot 24, Fresh Lane, Madhapur, Hyderabad, Telangana 500081</p><small>Sample address</small></div></li>
+      <li><span class="cs-ico"><i class="fa-regular fa-clock"></i></span><div><h3>Working Hours</h3><p>Mon–Sat: 8:00 AM – 8:00 PM<br>Sunday: events by booking</p><small>Sample hours</small></div></li>
+    </ul>
+    <ul class="cs-points"><li><i class="fa-solid fa-circle-check"></i>Meal plans and subscriptions</li><li><i class="fa-solid fa-circle-check"></i>Corporate and event catering</li><li><i class="fa-solid fa-circle-check"></i>Customized dietary requests</li></ul>
+  </aside>
+  <div class="reveal"><span class="label">Get in touch</span><h2 id="form-title">Send us an inquiry.</h2>
+  <form class="form-card" id="contactForm" novalidate>
+    <div class="two">
+      <div class="field"><label for="name">Full Name</label><input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Rahul Kumar" aria-describedby="nameErr"><span class="err" id="nameErr" role="alert"></span></div>
+      <div class="field"><label for="email">Email Address</label><input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="emailErr"><span class="err" id="emailErr" role="alert"></span></div>
+    </div>
+    <div class="two">
+      <div class="field"><label for="phone">Phone Number</label><input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210" aria-describedby="phoneErr"><span class="err" id="phoneErr" role="alert"></span></div>
+      <div class="field" id="typeField"><span class="field-label" id="typeLbl">Inquiry Type</span><div class="cselect" id="typeSelect"><button type="button" class="cselect-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="typeLbl" data-placeholder="Select an inquiry type"><span class="val ph">Select an inquiry type</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button><ul class="cselect-list" role="listbox" aria-labelledby="typeLbl"><li role="option" data-value="Meal Plan" aria-selected="false">Meal plan</li><li role="option" data-value="Corporate Catering" aria-selected="false">Corporate catering</li><li role="option" data-value="Wedding and Celebration Catering" aria-selected="false">Wedding and celebration catering</li><li role="option" data-value="Private Party Catering" aria-selected="false">Private party catering</li><li role="option" data-value="Daily Office Meals" aria-selected="false">Daily office meals</li><li role="option" data-value="Healthy Meal Subscriptions" aria-selected="false">Healthy meal subscriptions</li><li role="option" data-value="Customized Dietary Preferences" aria-selected="false">Customized dietary preferences</li><li role="option" data-value="Menu Inquiry" aria-selected="false">Menu question</li><li role="option" data-value="Catering Inquiry" aria-selected="false">General catering inquiry</li><li role="option" data-value="General Question" aria-selected="false">Something else</li></ul><input type="hidden" name="type" id="type" value=""></div><span class="err" id="typeErr" role="alert"></span></div>
+    </div>
+    <div class="field"><label for="subject">Subject</label><input class="input" id="subject" name="subject" type="text" placeholder="How can we help?" aria-describedby="subjectErr"><span class="err" id="subjectErr" role="alert"></span></div>
+    <div class="field"><label for="message">Message</label><textarea class="input" id="message" name="message" placeholder="Share dates, guest numbers, dietary needs or questions…" aria-describedby="messageErr" maxlength="1000"></textarea><span class="counter" id="counter">0 / 1000</span><span class="err" id="messageErr" role="alert"></span></div>
+    <button class="btn" type="submit" id="submitBtn"><span class="spin" aria-hidden="true"></span><span class="lbl">Send Inquiry</span> <i class="fa-solid fa-arrow-right arr"></i></button>
+    <p class="form-note"><i class="fa-solid fa-circle-info"></i><span>This demonstration site has no email service connected. Your details are checked in your browser and saved only on this device.</span></p>
+  </form></div>
+</div></section>
+
+<section class="section" aria-labelledby="map-title"><div class="wrap map-grid">
+  <div class="map-box reveal"><iframe id="mapFrame" title="Map showing the business location (sample address)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  <div class="map-info reveal"><span class="label">Find us on the map</span><h2 id="map-title">Visit the kitchen.</h2>
+    <p class="lead">Drop in to talk through menus, taste a few dishes or plan your event with our team face to face.</p>
+    <ul class="visit">
+      <li><i class="fa-solid fa-calendar-check"></i><span><b>Book a tasting</b>Tell us your preferred day and we will have dishes ready for you.</span></li>
+      <li><i class="fa-solid fa-bag-shopping"></i><span><b>Pickup orders</b>Collect pre-booked meals during working hours.</span></li>
+      <li><i class="fa-solid fa-car"></i><span><b>Easy to reach</b>Near Madhapur, Hyderabad, with parking nearby (sample details).</span></li>
+    </ul>
+    <div class="map-meta"><span><i class="fa-solid fa-location-dot" style="color:var(--coral)"></i> <span id="mapAddr"></span></span><a class="link-arrow" id="mapLink" href="#" target="_blank" rel="noopener noreferrer">Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+  </div>
+</div></section>
+
+<section class="section cream" id="faq" aria-labelledby="faq-title"><div class="wrap"><div class="sec-head reveal"><span class="label">Frequently asked questions</span><h2 id="faq-title">Quick answers.</h2></div><div class="faq reveal"><div class="faq-item"><h3 style="margin:0"><button class="faq-q" id="fq0" aria-expanded="false" aria-controls="fa0"><span>Can you customize a meal plan for my dietary needs?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="faq-a" id="fa0" role="region" aria-labelledby="fq0"><div><p>Yes. Tell us your preferences — vegetarian, vegan, higher-protein, lower-oil or others — and our team will suggest a plan. We share ingredient details on request, but we do not claim any dish is allergy-safe unless it has been verified for your needs.</p></div></div></div><div class="faq-item"><h3 style="margin:0"><button class="faq-q" id="fq1" aria-expanded="false" aria-controls="fa1"><span>How do I ask about corporate catering?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>Use the form above and choose “Corporate catering”, or call us during working hours. Share your headcount, location, preferred timing and any dietary needs, and we will reply with menu options and a quote.</p></div></div></div><div class="faq-item"><h3 style="margin:0"><button class="faq-q" id="fq2" aria-expanded="false" aria-controls="fa2"><span>How do I book catering for an event?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><p>Send an inquiry with your date, venue, guest count and the kind of event. We will propose a menu, confirm the details with you and then lock in the booking. Nothing is booked until our team confirms it with you.</p></div></div></div><div class="faq-item"><h3 style="margin:0"><button class="faq-q" id="fq3" aria-expanded="false" aria-controls="fa3"><span>Is the whole menu available every day?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>Our menu rotates with the seasons and ingredient availability, so some dishes may not be available on a given day. Ask our team when you inquire and we will suggest the best alternatives.</p></div></div></div><div class="faq-item"><h3 style="margin:0"><button class="faq-q" id="fq4" aria-expanded="false" aria-controls="fa4"><span>How far in advance should I book?</span><i class="fa-solid fa-plus" aria-hidden="true"></i></button></h3><div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>For daily meals, a couple of days is usually enough. For larger gatherings we suggest booking at least a week ahead, and several weeks ahead for weddings and big celebrations. Short-notice requests are welcome — we will do our best.</p></div></div></div></div></div></section>
+
+<section class="final-band" aria-labelledby="cf-title"><div class="wrap"><h2 id="cf-title" class="reveal">Your meal, your event, your way.</h2><p class="lead reveal">Tell us what you need and we will build a plan around it.</p><div class="btn-row reveal"><a class="btn light" href="404.html">Send an Inquiry <i class="fa-solid fa-arrow-right"></i></a><a class="btn line-light" href="404.html"><i class="fa-solid fa-phone"></i> Call the Team</a></div></div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="images/logo-ivory.webp" alt="Stackly logo" width="760" height="216" class="logo-img">
+      <p>Fresh, thoughtfully prepared meals and dependable catering for homes, offices and celebrations.</p>
+      <div class="socials" aria-label="Social media">
+        <a href="404.html" data-social="facebook" aria-label="Facebook" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="404.html" data-social="instagram" aria-label="Instagram" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="404.html" data-social="x" aria-label="X (formerly Twitter)" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="404.html" data-social="linkedin" aria-label="LinkedIn" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3 style="color: var(--coral);">Quick Links</h3>
+      <ul class="foot-links">
+        <li><a href="index.html">Home</a></li><li><a href="menu.html">Healthy Menu</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--coral);">Explore</h3>
+      <ul class="foot-links">
+        <li><a href="404.html">Meal Plans</a></li><li><a href="404.html">Corporate Catering</a></li><li><a href="404.html">Event Catering</a></li>
+        <li><a href="404.html">Healthy Eating Guide</a></li><li><a href="404.html">Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: var(--coral);">Contact</h3>
+      <ul class="foot-contact">
+        <li><i class="fa-solid fa-location-dot"></i><span>Plot 24, Fresh Lane, Madhapur,<br>Hyderabad, Telangana 500081</span></li>
+        <li><i class="fa-solid fa-phone"></i><a >+91 98765 43210</a></li>
+        <li><i class="fa-solid fa-envelope"></i><a >stackly@healthycatering.example</a></li>
+        <li><i class="fa-regular fa-clock"></i><span>Mon–Sat, 8:00 AM – 8:00 PM<br>Sunday: events by booking</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom"><span>&copy; <span data-year>2026</span> Stackly Healthy Catering Services Portal. All rights reserved.</span>
+    <span>
+    <a href="404.html">Privacy Policy& Terms</a> 
+    
+  </span>
+  </div>
+</footer>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script>
+
+/* ===== Shared site behaviour (header, drawer, reveal, toast, socials) ===== */
+(function(){
+  'use strict';
+  // CONFIG: replace with real social profile URLs when supplied.
+  const SOCIAL = {facebook:'404.html',instagram:'404.html',x:'404.html',linkedin:'404.html'};
+  document.querySelectorAll('[data-social]').forEach(a=>{a.href=SOCIAL[a.dataset.social]||'#';});
+  document.querySelectorAll('[data-year]').forEach(el=>{el.textContent=new Date().getFullYear();});
+
+  const header=document.getElementById('siteHeader');
+  const onScroll=()=>header&&header.classList.toggle('scrolled',window.scrollY>24);
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  const burger=document.getElementById('burger'),drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim'),closeBtn=document.getElementById('drawerClose');
+  function setDrawer(open){
+    drawer.classList.toggle('open',open);scrim.classList.toggle('open',open);document.body.classList.toggle('no-scroll',open);
+    burger.setAttribute('aria-expanded',String(open));drawer.setAttribute('aria-hidden',String(!open));
+    if(open){closeBtn.focus();}else{burger.focus({preventScroll:true});}
+  }
+  burger.addEventListener('click',()=>setDrawer(true));
+  closeBtn.addEventListener('click',()=>setDrawer(false));
+  scrim.addEventListener('click',()=>setDrawer(false));
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');scrim.classList.remove('open');document.body.classList.remove('no-scroll');burger.setAttribute('aria-expanded','false');}));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&drawer.classList.contains('open'))setDrawer(false);});
+  window.addEventListener('resize',()=>{if(window.innerWidth>980&&drawer.classList.contains('open'))setDrawer(false);});
+
+  // scroll reveal
+  const items=document.querySelectorAll('.reveal,.reveal-img');
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(el=>io.observe(el));
+  }else items.forEach(el=>el.classList.add('in'));
+
+  // toast
+  window.toast=function(msg,type){
+    const box=document.getElementById('toasts');if(!box)return;
+    const t=document.createElement('div');t.className='toast '+(type||'info');t.setAttribute('role',type==='error'?'alert':'status');
+    const ic=type==='error'?'fa-circle-exclamation':type==='success'?'fa-circle-check':'fa-circle-info';
+    t.innerHTML='<i class="fa-solid '+ic+'" aria-hidden="true"></i><span></span><button type="button" aria-label="Dismiss notification"><i class="fa-solid fa-xmark"></i></button>';
+    t.querySelector('span').textContent=msg;box.appendChild(t);
+    const kill=()=>{t.classList.add('out');setTimeout(()=>t.remove(),350);};
+    t.querySelector('button').addEventListener('click',kill);setTimeout(kill,5200);
+  };
+})();
+
+
+/* ===== Accessible custom dropdown (replaces native <select>) ===== */
+function initSelect(root){
+  const btn=root.querySelector('.cselect-btn'),list=root.querySelector('.cselect-list'),val=btn.querySelector('.val'),hidden=root.querySelector('input[type=hidden]');
+  const opts=[...list.querySelectorAll('[role=option]')];let idx=Math.max(0,opts.findIndex(o=>o.getAttribute('aria-selected')==='true'));
+  const ph=btn.dataset.placeholder||'';
+  function open(o){root.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));if(o){mark(idx);}}
+  function mark(i){opts.forEach(x=>x.classList.remove('focus'));if(opts[i]){opts[i].classList.add('focus');opts[i].scrollIntoView({block:'nearest'});}idx=i;}
+  function choose(i,silent){
+    opts.forEach(o=>o.setAttribute('aria-selected','false'));const o=opts[i];if(!o)return;o.setAttribute('aria-selected','true');idx=i;
+    val.textContent=o.textContent;val.classList.remove('ph');if(hidden)hidden.value=o.dataset.value;
+    root.dispatchEvent(new CustomEvent('cselect',{detail:{value:o.dataset.value,label:o.textContent,silent:!!silent}}));
+  }
+  root.setValue=function(v,silent){const i=opts.findIndex(o=>o.dataset.value===v||o.textContent===v);if(i>-1)choose(i,silent);return i>-1;};
+  root.reset=function(){opts.forEach(o=>o.setAttribute('aria-selected','false'));if(hidden)hidden.value='';val.textContent=ph;val.classList.add('ph');idx=0;};
+  btn.addEventListener('click',()=>open(!root.classList.contains('open')));
+  opts.forEach((o,i)=>o.addEventListener('click',()=>{choose(i);open(false);btn.focus();}));
+  btn.addEventListener('keydown',e=>{
+    const isOpen=root.classList.contains('open');
+    if(['ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();if(!isOpen)open(true);else mark(Math.min(opts.length-1,Math.max(0,idx+(e.key==='ArrowDown'?1:-1))));}
+    else if(e.key==='Home'&&isOpen){e.preventDefault();mark(0);} else if(e.key==='End'&&isOpen){e.preventDefault();mark(opts.length-1);}
+    else if((e.key==='Enter'||e.key===' ')&&isOpen){e.preventDefault();choose(idx);open(false);}
+    else if(e.key==='Escape'&&isOpen){e.preventDefault();open(false);}
+  });
+  document.addEventListener('click',e=>{if(!root.contains(e.target))open(false);});
+  if(btn.dataset.placeholder&&!hidden.value){val.textContent=ph;val.classList.add('ph');}
+}
+document.querySelectorAll('.cselect').forEach(initSelect);
+
+(function(){
+  // CONFIG: replace with the real business address; the map and link update automatically.
+  const BUSINESS_ADDRESS='Madhapur, Hyderabad, Telangana 500081, India';
+  document.getElementById('mapFrame').src='https://www.google.com/maps?q='+encodeURIComponent(BUSINESS_ADDRESS)+'&output=embed';
+  document.getElementById('mapLink').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(BUSINESS_ADDRESS);
+  document.getElementById('mapAddr').textContent=BUSINESS_ADDRESS+' (sample location)';
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{
+    const item=b.closest('.faq-item'),open=!item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+    if(open){item.classList.add('open');b.setAttribute('aria-expanded','true');}
+  }));
+
+  // Validation rules
+  const RULES={
+    name:v=>{v=v.trim();if(!v)return'Please enter your full name.';if(!/^[A-Za-z]+(?: [A-Za-z]+)*$/.test(v))return'Use letters and single spaces only — no digits or special characters.';if(v.length<2)return'Name is too short.';return'';},
+    email:v=>{v=v.trim();if(!v)return'Please enter your email address.';if(!/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.(?:com|in|org)$/i.test(v))return'Enter a valid email ending in .com, .in or .org.';return'';},
+    phone:v=>{v=v.replace(/[\s-]/g,'');if(!v)return'Please enter your phone number.';if(!/^(?:\+91|91|0)?[6-9]\d{9}$/.test(v))return'Enter a valid 10-digit Indian mobile number, e.g. +91 98765 43210.';return'';},
+    subject:v=>{v=v.trim();if(!v)return'Please add a subject.';if(v.length<3)return'Subject should be at least 3 characters.';return'';},
+    message:v=>{v=v.trim();if(!v)return'Please write a message.';if(v.length<20)return'Message should be at least 20 characters ('+v.length+' so far).';return'';},
+    type:v=>v?'':'Please choose an inquiry type.'
+  };
+  const form=document.getElementById('contactForm');
+  function setErr(id,msg){
+    const field=document.getElementById(id==='type'?'typeField':id).closest('.field'),err=document.getElementById(id+'Err');
+    field.classList.toggle('invalid',!!msg);field.classList.toggle('valid',!msg);err.textContent=msg;
+    const ctl=document.getElementById(id==='type'?'typeSelect':id);
+    if(id!=='type'){ctl.setAttribute('aria-invalid',msg?'true':'false');}
+  }
+  function check(id){const v=document.getElementById(id).value;const m=RULES[id](v);setErr(id,m);return !m;}
+  ['name','email','phone','subject','message'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.addEventListener('blur',()=>{if(el.value||el.closest('.field').classList.contains('invalid'))check(id);});
+    el.addEventListener('input',()=>{if(el.closest('.field').classList.contains('invalid'))check(id);});
+  });
+  document.getElementById('message').addEventListener('input',e=>{document.getElementById('counter').textContent=e.target.value.length+' / 1000';});
+  document.getElementById('typeSelect').addEventListener('cselect',e=>{if(!e.detail.silent)check('type');});
+
+  // Prefill from URL: ?service=...&plan=...&dish=...&message=...
+  const p=new URLSearchParams(location.search);
+  const svc=p.get('service'),plan=p.get('plan'),dish=p.get('dish'),msg=p.get('message');
+  if(svc){document.getElementById('typeSelect').setValue(svc,true);}
+  if(plan){document.getElementById('subject').value='Meal plan inquiry: '+plan;document.getElementById('message').value='I would like to know more about the '+plan+' plan. ';}
+  else if(dish){document.getElementById('subject').value='Question about '+dish;}
+  else if(svc){document.getElementById('subject').value=svc+' inquiry';}
+  if(msg){document.getElementById('message').value=msg;}
+  document.getElementById('counter').textContent=document.getElementById('message').value.length+' / 1000';
+  if(svc||plan||dish||msg){setTimeout(()=>{const s=document.getElementById('inquiry');s&&s.scrollIntoView({behavior:'smooth'});},350);}
+
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const ids=['name','email','phone','type','subject','message'];
+    const results=ids.map(id=>[id,check(id)]);const bad=results.find(r=>!r[1]);
+    if(bad){toast('Please fix the highlighted fields.','error');const id=bad[0];(id==='type'?document.querySelector('#typeSelect .cselect-btn'):document.getElementById(id)).focus();return;}
+    const btn=document.getElementById('submitBtn');btn.classList.add('loading');btn.disabled=true;btn.querySelector('.lbl').textContent='Checking…';
+    setTimeout(()=>{
+      // Demo only: no backend. Save locally so the admin demo dashboard can show it.
+      try{const k='hcs_contact_inquiries',list=JSON.parse(localStorage.getItem(k)||'[]');
+        list.unshift({id:Date.now(),name:form.name.value.trim(),email:form.email.value.trim(),phone:form.phone.value.trim(),type:form.type.value,subject:form.subject.value.trim(),message:form.message.value.trim(),date:new Date().toISOString()});
+        localStorage.setItem(k,JSON.stringify(list.slice(0,50)));}catch(_){}
+      btn.classList.remove('loading');btn.disabled=false;btn.querySelector('.lbl').textContent='Send Inquiry';
+      toast('Thanks! Your details look good. This demo site has no email service, so nothing was delivered — please call us for a real booking.','success');
+      form.reset();document.getElementById('typeSelect').reset();document.getElementById('counter').textContent='0 / 1000';
+      form.querySelectorAll('.field').forEach(f=>f.classList.remove('valid','invalid'));
+    },900);
+  });
+})();
+
+</script>
+</body>
+</html>
