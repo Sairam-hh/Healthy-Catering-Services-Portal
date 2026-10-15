@@ -137,16 +137,26 @@ textarea.input{min-height:140px;resize:vertical}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal,.reveal-img{opacity:1;transform:none;clip-path:none}}
 
 
-body{min-height:100vh;display:flex;flex-direction:column}
-.nf{flex:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(24px,5vw,80px);width:min(1180px,100% - 48px);margin:0 auto;padding:clamp(100px,12vw,140px) 0 60px;position:relative}
-.nf::before{content:"";position:absolute;left:-10%;top:10%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(235,203,114,.35),transparent 65%);z-index:-1}
-.nf-art{position:relative;aspect-ratio:1;max-width:520px;margin-inline:auto;width:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)} .nf-art img{width:100%;height:100%;object-fit:cover}
+/* 404: fits exactly in one screen (no page scroll) */
+html,body{height:100%}
+body{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow-x:hidden;overflow-y:auto}
+.nf{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(20px,5vw,80px);width:min(1180px,100% - 48px);margin:0 auto;padding:clamp(72px,11vh,104px) 0 clamp(16px,4vh,40px);position:relative}
+.nf::before{content:"";position:absolute;left:-10%;top:10%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(235,203,114,.35),transparent 65%);z-index:-1;pointer-events:none}
+.nf-art{position:relative;justify-self:center;aspect-ratio:1;height:min(520px,68vh);max-width:100%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);background:var(--sage)} .nf-art img{width:100%;height:100%;object-fit:cover}
 .nf-art .glass{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);padding:14px 26px;font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.6rem);color:var(--forest);animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translate(-50%,-56%)}}
 .nf-copy .code{font-family:var(--serif);font-size:1.2rem;color:var(--coral);margin-bottom:10px}
-.nf-copy h1{font-size:clamp(2.2rem,4.8vw,3.8rem)}
+.nf-copy h1{font-size:clamp(2rem,min(4.8vw,7vh),3.8rem)}
 .nf-top{position:absolute;top:0;left:0;right:0;padding:20px 0;z-index:5} .nf-top .wrap{display:flex;justify-content:space-between;align-items:center}
-@media (max-width:860px){.nf{grid-template-columns:1fr;text-align:left}.nf-art{max-width:360px;order:-1}}
+@media (max-width:860px){
+  .nf{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:clamp(14px,3vh,24px);padding:clamp(64px,10vh,84px) 0 clamp(14px,3vh,28px)}
+  .nf-art{order:-1;height:min(260px,32vh)}
+  .nf-copy h1{font-size:clamp(1.7rem,6.4vw,2.4rem);margin-bottom:.35em}
+  .nf-copy .code{margin-bottom:6px;font-size:1.05rem}
+  .nf-copy .lead{font-size:1rem;margin-bottom:.9em}
+  .nf-top{padding:14px 0} .nf-top .logo-img{width:120px}
+}
+@media (max-height:560px) and (min-width:861px){.nf-art{height:min(520px,60vh)}.nf-copy .lead{font-size:1rem}}
 
 </style>
 </head>
@@ -154,7 +164,7 @@ body{min-height:100vh;display:flex;flex-direction:column}
 <div class="nf-top"><div class="wrap"><a href="index.html" aria-label="Healthy Catering Services Portal home"><img src="images/logo-forest.webp" alt="Stackly logo" width="760" height="216" class="logo-img"></a></div></div>
 <main id="main" class="nf"><div class="nf-copy"><p class="code hero-in">Error 404</p><h1 class="hero-in" style="--d:.1s">Oops! This Page Is Off the Menu.</h1><p class="lead hero-in" style="--d:.2s">The page you're looking for may have moved, expired, or is no longer available.</p>
 <div class="btn-row hero-in" style="--d:.3s"><a class="btn" href="index.html"><i class="fa-solid fa-house"></i> Go Home</a><button class="btn ghost" type="button" id="back"><i class="fa-solid fa-arrow-left"></i> Go Back</button></div></div>
-<div class="nf-art hero-in" style="--d:.15s"><img src="images/not-found.webp" alt="An empty white plate with a fork and knife on a cream table" width="960" height="960" fetchpriority="high" decoding="async" class="" ><div class="glass" aria-hidden="true">404</div></div></main>
+<div class="nf-art hero-in" style="--d:.15s"><img src="images/not-found.webp" alt="An empty white plate with a fork and knife on a cream table" width="960" height="960" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.src='images/grain-bowl.webp'"><div class="glass" aria-hidden="true">404</div></div></main>
 <script>
 document.getElementById('back').addEventListener('click',function(){
   // Use history only when there is a same-site page to go back to; otherwise fall back to the home page.

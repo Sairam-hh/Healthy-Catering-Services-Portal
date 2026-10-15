@@ -261,6 +261,94 @@ textarea.input{min-height:140px;resize:vertical}
 .final::after{content:"";position:absolute;right:6%;top:-70px;width:200px;height:200px;border-radius:50%;border:2px solid var(--citrus);opacity:.5}
 .final h2{color:var(--ivory);max-width:14ch} .final .lead{margin-bottom:34px}
 
+/* Hero Facts - Premium Hover Effect */
+.hero-facts > div {
+  position: relative;
+  padding: 18px 20px;
+  border: 1px solid rgba(117, 184, 67, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Soft green glow */
+.hero-facts > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(117, 184, 67, 0.13),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* Hover card */
+.hero-facts > div:hover {
+  transform: translateY(-7px);
+  background: rgba(117, 184, 67, 0.08);
+  border-color: rgba(117, 184, 67, 0.55);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.hero-facts > div:hover::before {
+  opacity: 1;
+}
+
+/* Icons */
+.hero-facts > div i {
+  display: inline-block;
+  margin-right: 9px;
+  color: var(--charcoal);
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+.hero-facts > div:hover i {
+  transform: scale(1.2) rotate(-8deg);
+  color: var(--coral);
+}
+
+/* Supporting text */
+.hero-facts > div span {
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.hero-facts > div:hover span {
+  color: var(--forest);
+}
+
+/* Keyboard accessibility */
+.hero-facts > div:focus-within {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-facts > div,
+  .hero-facts > div::before,
+  .hero-facts > div i,
+  .hero-facts > div span {
+    transition: none;
+  }
+
+  .hero-facts > div:hover {
+    transform: none;
+  }
+}
+
 </style>
 </head>
 <body class="">
@@ -414,7 +502,7 @@ textarea.input{min-height:140px;resize:vertical}
 
 <section class="section stats" aria-labelledby="stats-title">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="label">Our impact</span><h2 id="stats-title">A small kitchen with a growing table.</h2></div>
+    <div class="sec-head reveal"><span class="label">Our impact</span><h2 id="stats-title" style="color: var(--coral);">A small kitchen with a growing table.</h2></div>
     <div class="stat-grid reveal" id="stats">
       <div class="stat"><b data-count="5000" data-suffix="+">0</b><span>Meals Served</span></div>
       <div class="stat"><b data-count="250" data-suffix="+">0</b><span>Catering Events</span></div>
@@ -441,8 +529,8 @@ textarea.input{min-height:140px;resize:vertical}
   <img src="images/cta-bg.webp" alt="" aria-hidden="true" width="1600" height="720" loading="lazy" decoding="async" class="bg" >
   <div class="wrap">
     <span class="label reveal">Ready when you are</span>
-    <h2 id="final-title" class="reveal">Make Every Meal a Better Choice.</h2>
-    <p class="lead reveal">Discover fresh meals and thoughtful catering made to fit your day.</p>
+    <h2 id="final-title" class="reveal" style="color:var(--coral);">Make Every Meal a Better Choice.</h2>
+    <p >Discover fresh meals and thoughtful catering made to fit your day.</p>
     <div class="btn-row reveal"><a class="btn light" href="404.html">Explore Our Menu <i class="fa-solid fa-arrow-right"></i></a><a class="btn line-light" href="404.html">Contact Our Team</a></div>
   </div>
 </section>
